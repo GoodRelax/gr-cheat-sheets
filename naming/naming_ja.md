@@ -1,6 +1,6 @@
 # GoodRelax Naming Cheat Sheet
 
-| Category      | 品詞   | Word         | ニュアンス                             | 使用例                      | 備考                                                |
+| Category      | 品詞　   | Word         | ニュアンス                             | 使用例                      | 備考                                                |
 | ------------- | ------ | ------------ | -------------------------------------- | --------------------------- | --------------------------------------------------- |
 | General       | 形容詞 | sync         | 同期操作                               | syncCall                    | 実行をブロックする                                  |
 | General       | 形容詞 | async        | 非同期操作                             | asyncOperation              | ノンブロッキング実行                                |
@@ -345,3 +345,4 @@
 | Configuration | 名詞   | environment  | ランタイム環境設定                     | environmentVariables        | デプロイメントコンテキスト                          |
 
 (c) 2026 GoodRelax. MIT License.
+
