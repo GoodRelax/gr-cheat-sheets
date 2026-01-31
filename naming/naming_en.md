@@ -1,6 +1,5 @@
 # GoodRelax Naming Cheat Sheet
-                 © 2026 GoodRelax. MIT License.
-
+                
 | Category      | PoS | Word         | Nuance                                       | Usage                       | Note                                     |
 | ------------- | --- | ------------ | -------------------------------------------- | --------------------------- | ---------------------------------------- |
 | General       | adj | sync         | Synchronous operation.                       | syncCall                    | Blocking execution.                      |
@@ -344,3 +343,5 @@
 | Configuration | n   | parameter    | Input/configuration parameter.               | functionParameter           | Passed value.                            |
 | Configuration | n   | variable     | Configurable value holder.                   | configVariable              | Mutable setting.                         |
 | Configuration | n   | environment  | Runtime environment settings.                | environmentVariables        | Deployment context.                      |
+
+(c) 2026 GoodRelax. MIT License.
