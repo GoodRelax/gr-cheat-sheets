@@ -1,7 +1,7 @@
 # GoodRelax Naming Cheat Sheet
                 
 | Category      | PoS | Word         | Nuance                                       | Usage                       | Note                                     |
-| ------------- | --- | ------------ | -------------------------------------------- | --------------------------- | ---------------------------------------- |
+| :------------ | :-- | :----------- | :------------------------------------------- | :-------------------------- | :--------------------------------------- |
 | General       | adj | sync         | Synchronous operation.                       | syncCall                    | Blocking execution.                      |
 | General       | adj | async        | Asynchronous operation.                      | asyncOperation              | Non-blocking execution.                  |
 | General       | adj | online       | Connected to network.                        | onlineUsers                 | Active connection.                       |
