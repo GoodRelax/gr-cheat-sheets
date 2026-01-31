@@ -1,2 +1,16 @@
 # gr-cheat-sheets
 Collection of cheat sheets
+
+# gr-cheat-sheets
+
+A collection of cheat sheets for developers.
+I update this repository gradually, adding new references whenever we find them useful.
+
+## 📝 Lists
+
+* **Naming Conventions**
+    * [English](./naming_en.md)
+    * [Japanes](./naming_ja.md)
+
+---
+*More to come... eventually.*
