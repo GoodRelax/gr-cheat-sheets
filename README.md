@@ -9,8 +9,8 @@ I update this repository gradually, adding new references whenever we find them 
 ## 📝 Lists
 
 * **Naming Conventions**
-    * [English](./naming_en.md)
-    * [Japanes](./naming_ja.md)
+    * [English](./naming/naming_en.md)
+    * [Japanes](./naming/naming_ja.md)
 
 ---
 *More to come... eventually.*
