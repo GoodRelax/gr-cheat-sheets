@@ -1,4 +1,5 @@
-# GoodRelax Naming Cheat Sheet                  © 2026 GoodRelax. MIT License.
+# GoodRelax Naming Cheat Sheet
+                 © 2026 GoodRelax. MIT License.
 
 | Category      | PoS | Word         | Nuance                                       | Usage                       | Note                                     |
 | ------------- | --- | ------------ | -------------------------------------------- | --------------------------- | ---------------------------------------- |
