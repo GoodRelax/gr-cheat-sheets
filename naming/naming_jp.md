@@ -343,3 +343,5 @@
 | Configuration | 名詞   | parameter    | 入力/構成パラメータ                    | functionParameter           | 渡された値                                          |
 | Configuration | 名詞   | variable     | 設定値のホルダー                       | configVariable              | 変更可能な設定                                      |
 | Configuration | 名詞   | environment  | ランタイム環境設定                     | environmentVariables        | デプロイメントコンテキスト                          |
+
+(c) 2026 GoodRelax. MIT License.
