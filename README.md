@@ -11,7 +11,9 @@ I update this repository gradually, adding new references whenever we find them 
 * **Naming Conventions**
     * [English](./naming/naming_en.md)
     * [Japanes](./naming/naming_ja.md)
-
+      
+* **Class Diagrams**
+    * [English/Japanese][./uml/class_diagram_cheat_sheet.md)
 ---
 *More to come... eventually.*
 
