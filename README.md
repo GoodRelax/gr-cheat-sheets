@@ -13,7 +13,7 @@ I update this repository gradually, adding new references whenever we find them 
     * [Japanes](./naming/naming_ja.md)
       
 * **Class Diagrams**
-    * [English/Japanese][./uml/class_diagram_cheat_sheet.md)
+    * [English/Japanese](/uml/class_diagram_cheat_sheet.md)
 ---
 *More to come... eventually.*
 
