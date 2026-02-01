@@ -11,9 +11,11 @@ I update this repository gradually, adding new references whenever we find them 
 * **Naming Conventions**
     * [English](./naming/naming_en.md)
     * [Japanes](./naming/naming_ja.md)
-      
+    
 * **Class Diagrams**
-    * [English/Japanese](/uml/class_diagram_cheat_sheet.md)
+    * [English](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-en.html)
+    * [Japanese](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-jp.html)
+
 ---
 *More to come... eventually.*
 
