@@ -23,3 +23,5 @@ KISS, YAGNI, DRY, SoC, SRP, OCP, LSP, ISP, DIP, SOLID, SLAP, LOD, CQS, POLA, PIE
 | PIE            | Program Intently and Expressively     | Write code that clearly expresses intent and purpose.        |
 | CA             | Clean Architecture                    | Organize systems around use cases and boundaries.            |
 | Naming matters | Naming matters                        | Good names improve readability and understanding.            |
+
+<p align="right">(c)2026 GoodRelax. MIT License.</p>

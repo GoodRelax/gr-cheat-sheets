@@ -32,3 +32,5 @@
 | PIE            | Program Intently and Expressively     | 意図が明確に伝わるコードを書く |
 | CA             | Clean Architecture                    | ユースケース中心の構造化       |
 | Naming matters | Naming matters                        | 良い命名は理解性を高める       |
+
+<p align="right">(c)2026 GoodRelax. MIT License.</p>

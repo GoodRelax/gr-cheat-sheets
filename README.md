@@ -1,5 +1,6 @@
 # gr-cheat-sheets
-Collection of cheat sheets
+
+Collection of cheat sheets created by GoodRelax
 
 # gr-cheat-sheets
 
@@ -8,14 +9,18 @@ I update this repository gradually, adding new references whenever we find them 
 
 ## 📝 Lists
 
-* **Naming Conventions**
-    * [English](./naming/naming_en.md)
-    * [Japanes](./naming/naming_ja.md)
-    
-* **Class Diagrams**
-    * [English](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-en.html)
-    * [Japanese](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-jp.html)
+- **AI Coding**
+  - [English](./ai-coding/gr_ai_coding_en.md)
+  - [Japanese](./ai-coding/gr_ai_coding_ja.md)
+  -
+- **Naming Conventions**
+  - [English](./naming/naming_en.md)
+  - [Japanese](./naming/naming_ja.md)
+
+- **Class Diagrams**
+  - [English](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-en.html)
+  - [Japanese](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-jp.html)
 
 ---
-*More to come... eventually.*
 
+_More to come... eventually._
