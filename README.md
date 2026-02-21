@@ -10,16 +10,16 @@ I update this repository gradually, adding new references whenever we find them 
 ## 📝 Lists
 
 - **AI Coding**
-  - [English](./ai-coding/gr_ai_coding_en.md)
+  - [English](./ai-coding/gr_ai_coding_en.md)  
   - [Japanese](./ai-coding/gr_ai_coding_ja.md)
-  -
+    
 - **Naming Conventions**
-  - [English](./naming/naming_en.md)
-  - [Japanese](./naming/naming_ja.md)
+  - [English](./naming/naming_en.md)  
+  - [Japanese](./naming/naming_ja.md)  
 
 - **Class Diagrams**
-  - [English](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-en.html)
-  - [Japanese](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-jp.html)
+  - [English](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-en.html)  
+  - [Japanese](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-jp.html)  
 
 ---
 
