@@ -1,4 +1,3 @@
-
 ## Output Format (MCBSMD)
 
 - Output the entire content **as a single Markdown code block** so it can be copied in one go.
@@ -25,7 +24,7 @@
   > Write the explanation for the code block here, immediately after the block, following a blank line.
 
 - Do not write explanations inside the code blocks.
-- In all diagrams, use only alphanumeric characters and underscores `_`. Do not use any other characters, as they can cause rendering errors.
+- In all diagrams, use alphanumeric characters and underscores (`_`) by default; non-ASCII plain text (no spaces) is permitted when necessary. Special symbols (e.g., `\`, `/`, `|`, `<`, `>`, `{`, `}`) are strictly prohibited.
 - Output all diagram content without omission. Never use `...` or any shorthand.
 
 ### Diagram Label and Notation Rules

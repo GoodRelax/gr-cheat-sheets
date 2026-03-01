@@ -64,7 +64,7 @@
   > Write the explanation for the code block here, immediately after the block, following a blank line.
 
 - Do not write explanations inside the code blocks.
-- In all diagrams, use only alphanumeric characters and underscores `_`. Do not use any other characters, as they can cause rendering errors.
+- In all diagrams, use alphanumeric characters and underscores (`_`) by default; non-ASCII plain text (no spaces) is permitted when necessary. Special symbols (e.g., `\`, `/`, `|`, `<`, `>`, `{`, `}`) are strictly prohibited.
 - Output all diagram content without omission. Never use `...` or any shorthand.
 
 ### Diagram Label and Notation Rules
@@ -87,6 +87,5 @@
      > $$
      > E = mc^2
      > $$
-
 
 <p align="right">(c)2026 GoodRelax. MIT License.</p>
