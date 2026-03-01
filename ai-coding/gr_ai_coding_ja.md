@@ -34,4 +34,36 @@
 | CA             | Clean Architecture                    | ユースケース中心の構造化       |
 | Naming matters | Naming matters                        | 良い命名は理解性を高める       |
 
+## 啓発
+
+頭が古い昭和平成のエンジニアを2026年最新仕様にアップデートしたい。
+近年のソフト開発の進化についてA4で20枚程度の情報量でレポートし、以下の書式で出力せよ。
+
+## Output Format
+- Output the entire content **as a single Markdown code block** so it can be copied in one go.
+- **Enclose the entire Markdown with six backticks ` `````` ` at the beginning and end to prevent Markdown splitting.** Specify its language as markdown.
+- **Use the six backticks only once as the outermost enclosure.**
+- Any UML diagrams or software code inside the Markdown must each be enclosed in their own code blocks using three backticks ` ``` `.
+  This creates a structure where multiple three backticks blocks are nested inside the outer six backticks block to prevent Markdown splitting.
+- Precede each code/UML block with a descriptive [Title Name]: and a blank line.
+- Prefix each inner code block with a language or file type, for example: ` ```python `
+- As a rule, use Mermaid for UML diagrams. Use PlantUML only when Mermaid cannot represent the diagram.
+- Use only alphanumeric characters and underscores `_` in UML.
+- Write explanations only outside UML blocks, and placed immediately after the corresponding UML but within the Markdown.
+- Output all required UML contents completely, without omission.
+- Never truncate or abbreviate code or UML content using `...` or similar shortcuts.
+- All arrows and relationship lines in UML diagrams (including dashed lines and bidirectional links) must have labels, and the following notation rules must be strictly followed:
+  1. For Mermaid `flowchart` and `graph`: include the label inside the arrow definition using pipes
+     (example: `A -->|Label| B`)
+  2. For all other Mermaid diagrams and all PlantUML diagrams: include the label at the end using a colon
+     (example: `A --> B : Label`)
+- For line breaks within labels or node text:
+  - Mermaid: use `<br/>` inside a quoted string (example: `A -->|"Line1<br/>Line2"| B` or `A["Line1<br/>Line2"]`)
+  - PlantUML: use `\n` (example: `A -> B : Line1\nLine2`)
+- Use standard LaTeX notation for mathematical formulas.
+- Always enclose inline math in single dollar signs `$` (e.g., `$E=mc^2$`) and display math (block equations) in double signs `$$`.
+- **Never output speculation or fabrications.** If something is unclear or requires investigation, explicitly state so.
+- This method is called **MCBSMD** (Multiple Code Block in Single MarkDown).
+
+
 <p align="right">(c)2026 GoodRelax. MIT License.</p>
