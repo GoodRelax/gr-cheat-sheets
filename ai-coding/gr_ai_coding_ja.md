@@ -33,11 +33,17 @@
 | CA             | Clean Architecture                    | ユースケース中心の構造化       |
 | Naming matters | Naming matters                        | 良い命名は理解性を高める       |
 
+
+## 調査
+
+プリント基板の設計・製造技術およびその動向について解説するレポートをA4で20ページぐらいの情報量にまとめて、以下の書式で出力せよ。
+
 ## 啓発
 
 頭が古い昭和平成のエンジニアを2026年最新仕様にアップデートしたい。
 近年のソフト開発の進化についてA4で20枚程度の情報量でレポートし、以下の書式で出力せよ。
 
+```markdown
 ## Output Format
 
 - Output the entire content **as a single Markdown code block** so it can be copied in one go.
@@ -87,5 +93,6 @@
      > $$
      > E = mc^2
      > $$
+```
 
 <p align="right">(c)2026 GoodRelax. MIT License.</p>
