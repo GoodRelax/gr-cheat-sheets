@@ -1,3 +1,10 @@
+オリジナル: [https://github.com/GoodRelax/gr-cheat-sheets/blob/main/ai-coding/sdd_report.md](https://github.com/GoodRelax/gr-cheat-sheets/blob/main/ai-coding/sdd_report.md)
+
+# 指示
+
+昨今のAIによるSDD(spec driven develpment)のトレンドと主要な技術とその特徴、
+およびその提供者について広範に調査し、**A4用紙30枚程度の情報量で** MCBSMDの書式にてレポートせよ。
+
 # AIによるSpec Driven Development (SDD) トレンド調査レポート
 
 **調査対象期間:** 2024年〜2026年3月  
