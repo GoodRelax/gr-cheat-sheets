@@ -1,0 +1,16 @@
+StrictDoc/
+
+# Old
+old/
+
+# Claude Code local settings
+.claude
+prompt/
+CLAUDE.md
+
+
+# Secrets and keys
+.env
+.env.*
+*.pem
+*.key
