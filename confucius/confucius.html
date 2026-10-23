@@ -349,13 +349,9 @@ body {
 </style>
 <script>
 (function () {
-  // Apply the saved theme (or the OS preference) before first paint
-  var t = null;
-  try { t = localStorage.getItem('confucius-theme'); } catch (e) {}
-  if (t !== 'light' && t !== 'dark') {
-    t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  document.documentElement.setAttribute('data-theme', t);
+  // Apply the OS preference before first paint (nothing is stored in the browser)
+  var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
 })();
 </script>
 </head>
@@ -722,46 +718,34 @@ _q('#kaisetsuBtn').addEventListener('click', () => {
   _q('#kaisetsuReveal').classList.toggle('show');
   _q('#kaisetsuBtn').classList.toggle('active');
 });
-function loadPref(key) {
-  try { return localStorage.getItem(key); } catch (e) { return null; }
-}
-function savePref(key, value) {
-  try { localStorage.setItem(key, value); } catch (e) {}
-}
-
-// Light / dark theme toggle
+// Light / dark theme toggle (kept in memory only; reload returns to the OS preference)
+let themePicked = false;
 _q('#themeBtn').addEventListener('click', () => {
   const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
-  savePref('confucius-theme', next);
+  themePicked = true;
 });
-// Follow OS changes until the user picks a theme explicitly
+// Follow OS changes until the user picks a theme on this page
 if (window.matchMedia) {
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    const saved = loadPref('confucius-theme');
-    if (saved !== 'light' && saved !== 'dark') {
+    if (!themePicked) {
       document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
     }
   });
 }
 
-// Table toggles: show hitokoto / kaisetsu under each kundoku
-function bindListToggle(btnId, cls, key) {
+// Table toggles: show hitokoto / kaisetsu under each kundoku (off on every load)
+function bindListToggle(btnId, cls) {
   const btn = _q(btnId);
-  const apply = (on) => {
+  btn.addEventListener('click', () => {
+    const on = !btn.classList.contains('active');
     _q('#listTable').classList.toggle(cls, on);
     btn.classList.toggle('active', on);
     btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-  };
-  apply(loadPref(key) === '1');
-  btn.addEventListener('click', () => {
-    const on = !btn.classList.contains('active');
-    apply(on);
-    savePref(key, on ? '1' : '0');
   });
 }
-bindListToggle('#listHitokotoBtn', 'show-hitokoto', 'confucius-list-hitokoto');
-bindListToggle('#listKaisetsuBtn', 'show-kaisetsu', 'confucius-list-kaisetsu');
+bindListToggle('#listHitokotoBtn', 'show-hitokoto');
+bindListToggle('#listKaisetsuBtn', 'show-kaisetsu');
 
 _q('#prevBtn').addEventListener('click',() => showEntry((currentIndex - 1 + DATA.length) % DATA.length));
 _q('#nextBtn').addEventListener('click', () => showEntry((currentIndex + 1) % DATA.length));
