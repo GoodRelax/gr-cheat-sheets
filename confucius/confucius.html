@@ -322,6 +322,28 @@ body {
 /* The kundoku column is hidden on narrow screens; notes move under kanbun there */
 .notes-narrow { display: none; }
 
+/* Copy-link icon at the end of each row */
+.list-table .col-link { width: 2.4rem; text-align: center; padding-left: 0; padding-right: 0; }
+.copy-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.copy-btn:hover { background: var(--accent-a08); color: var(--accent); }
+.copy-btn svg { width: 1rem; height: 1rem; }
+.copy-btn .icon-check { display: none; }
+.copy-btn.copied { color: var(--accent); }
+.copy-btn.copied .icon-link { display: none; }
+.copy-btn.copied .icon-check { display: block; }
+
 .cat-badge {
   display: inline-block;
   font-size: 0.72rem;
@@ -409,6 +431,7 @@ body {
         <th class="col-src">出典</th>
         <th class="col-kanbun">漢文</th>
         <th class="col-kundoku">書き下し文</th>
+        <th class="col-link" aria-label="リンク"></th>
       </tr>
     </thead>
     <tbody id="listBody"></tbody>
@@ -675,8 +698,21 @@ let currentIndex = 0;
 const _q = (s) => document.querySelector(s);
 const _qa = (s) => document.querySelectorAll(s);
 
+// Deep link: confucius.html#3 opens No.3
+function entryUrl(d) {
+  return location.href.split('#')[0] + '#' + d.no;
+}
+function indexFromHash() {
+  const m = /^#(\d+)$/.exec(location.hash);
+  if (!m) return -1;
+  return DATA.findIndex((d) => d.no === Number(m[1]));
+}
+
 function showEntry(idx) {
   currentIndex = idx;
+  if (location.hash !== '#' + DATA[idx].no) {
+    history.replaceState(null, '', '#' + DATA[idx].no);
+  }
   const d = DATA[idx];
   _q('#navLabel').textContent = 'No.' + d.no + ' / ' + DATA.length;
   _q('#sourceDisplay').textContent = d.source;
@@ -705,6 +741,17 @@ function buildTable() {
       + '<td class="col-kanbun">' + d.kanbun.replace(/ {2,}/g, ' ')
       + '<div class="notes-narrow">' + notes + '</div></td>'
       + '<td class="col-kundoku">' + d.kundoku.replace(/[\u3000]{2,}| {2,}/g, ' ') + notes + '</td>';
+    const linkTd = document.createElement('td');
+    linkTd.className = 'col-link';
+    linkTd.innerHTML = '<button class="copy-btn" aria-label="No.' + d.no + ' のリンクをコピー" title="リンクをコピー">'
+      + '<svg class="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>'
+      + '<svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>'
+      + '</button>';
+    linkTd.querySelector('.copy-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      copyLink(e.currentTarget, entryUrl(d));
+    });
+    tr.appendChild(linkTd);
     tr.addEventListener('click', () => showEntry(i));
     tbody.appendChild(tr);
   });
@@ -754,8 +801,44 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') showEntry((currentIndex + 1) % DATA.length);
 });
 
+// Copy a URL to the clipboard, with a fallback for non-secure contexts
+function copyLink(btn, url) {
+  const done = () => {
+    btn.classList.add('copied');
+    btn.title = 'コピーしました';
+    setTimeout(() => { btn.classList.remove('copied'); btn.title = 'リンクをコピー'; }, 1500);
+  };
+  const fallback = () => {
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { if (document.execCommand('copy')) done(); } catch (e) {}
+    document.body.removeChild(ta);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(url).then(done, fallback);
+  } else {
+    fallback();
+  }
+}
+
+window.addEventListener('hashchange', () => {
+  const idx = indexFromHash();
+  if (idx >= 0 && idx !== currentIndex) showEntry(idx);
+});
+
 buildTable();
-showEntry(0);
+const startIndex = indexFromHash();
+if (startIndex >= 0) {
+  showEntry(startIndex);
+} else {
+  showEntry(0);
+  // Keep a plain URL when no entry was requested
+  history.replaceState(null, '', location.href.split('#')[0]);
+}
 </script>
 </body>
 </html>
