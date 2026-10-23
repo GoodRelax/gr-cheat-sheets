@@ -17,17 +17,75 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ===== THEME TOKENS ===== */
+:root {
+  color-scheme: light;
+  --bg: #f5f0e6;
+  --text: #2a2a2a;
+  --ink: #1a1a1a;
+  --ink-sub: #3a3a3a;
+  --body-sub: #4a4a4a;
+  --table-sub: #5a5a5a;
+  --muted: #8a7a6a;
+  --muted-strong: #6a5a4a;
+  --faint: #a09080;
+  --btn-border: #b8a88a;
+  --accent: #c43e2a;
+  --accent-fg: #fff;
+  --accent-a04: rgba(196,62,42,0.04);
+  --accent-a06: rgba(196,62,42,0.06);
+  --accent-a08: rgba(196,62,42,0.08);
+  --accent-a10: rgba(196,62,42,0.1);
+  --line: rgba(139,119,90,0.2);
+  --line-soft: rgba(139,119,90,0.1);
+  --line-strong: rgba(139,119,90,0.25);
+  --thead-bg: rgba(139,119,90,0.12);
+  --paper-a: rgba(139,119,90,0.04);
+  --paper-b: rgba(180,160,120,0.06);
+  --kanbun-shadow: 0.5px 0.5px 0px rgba(0,0,0,0.2), -0.3px 0px 1px rgba(0,0,0,0.06);
+  --manabi-bg: rgba(59,130,246,0.12);
+  --manabi-fg: #2563eb;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1d1b18;
+  --text: #e6dfd2;
+  --ink: #f0e9dc;
+  --ink-sub: #ddd5c6;
+  --body-sub: #cfc7b8;
+  --table-sub: #b9b1a3;
+  --muted: #a8998a;
+  --muted-strong: #bfb09d;
+  --faint: #8f8272;
+  --btn-border: #6e6252;
+  --accent: #e06a52;
+  --accent-fg: #1d1b18;
+  --accent-a04: rgba(224,106,82,0.06);
+  --accent-a06: rgba(224,106,82,0.1);
+  --accent-a08: rgba(224,106,82,0.12);
+  --accent-a10: rgba(224,106,82,0.16);
+  --line: rgba(200,180,140,0.18);
+  --line-soft: rgba(200,180,140,0.1);
+  --line-strong: rgba(200,180,140,0.25);
+  --thead-bg: rgba(200,180,140,0.1);
+  --paper-a: rgba(200,180,140,0.03);
+  --paper-b: rgba(200,180,140,0.04);
+  --kanbun-shadow: none;
+  --manabi-bg: rgba(122,167,255,0.16);
+  --manabi-fg: #8fb4ff;
+}
+
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  color: #2a2a2a;
+  color: var(--text);
   min-height: 100vh;
-  background-color: #f5f0e6;
+  background-color: var(--bg);
   background-image:
-    radial-gradient(ellipse at 20% 50%, rgba(139,119,90,0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(139,119,90,0.03) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(160,140,100,0.04) 0%, transparent 50%),
-    radial-gradient(circle at 30% 30%, rgba(180,160,120,0.06) 0%, transparent 30%),
-    radial-gradient(circle at 70% 70%, rgba(180,160,120,0.05) 0%, transparent 25%),
+    radial-gradient(ellipse at 20% 50%, var(--paper-a) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, var(--paper-a) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, var(--paper-a) 0%, transparent 50%),
+    radial-gradient(circle at 30% 30%, var(--paper-b) 0%, transparent 30%),
+    radial-gradient(circle at 70% 70%, var(--paper-b) 0%, transparent 25%),
     repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139,119,90,0.012) 2px, rgba(139,119,90,0.012) 3px),
     repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(139,119,90,0.008) 3px, rgba(139,119,90,0.008) 4px);
 }
@@ -43,14 +101,14 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 0.8rem 1rem;
-  background-color: #f5f0e6;
-  border-bottom: 1px solid rgba(139,119,90,0.2);
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--line);
 }
 .header-bar h1 {
   font-family: 'Kaisho', serif;
   font-size: 1.15rem;
   letter-spacing: 0.1em;
-  color: #2a2a2a;
+  color: var(--text);
   white-space: nowrap;
 }
 .nav {
@@ -60,8 +118,8 @@ body {
 }
 .nav-btn {
   background: none;
-  border: 1px solid #b8a88a;
-  color: #6a5a4a;
+  border: 1px solid var(--btn-border);
+  color: var(--muted-strong);
   font-size: 1rem;
   width: 2rem;
   height: 2rem;
@@ -72,10 +130,14 @@ body {
   align-items: center;
   justify-content: center;
 }
-.nav-btn:hover { background: rgba(196,62,42,0.08); border-color: #c43e2a; color: #c43e2a; }
+.nav-btn:hover { background: var(--accent-a08); border-color: var(--accent); color: var(--accent); }
+.nav-btn svg { width: 1rem; height: 1rem; }
+.theme-btn .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-btn .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-btn .icon-moon { display: none; }
 .nav-info {
   font-size: 0.85rem;
-  color: #8a7a6a;
+  color: var(--muted);
   text-align: center;
   min-width: 5rem;
 }
@@ -95,8 +157,8 @@ body {
   gap: 2rem;
   padding: 1.5rem 1rem;
   height: max(280px, calc(100vh - 310px));
-  border-top: 1px solid rgba(139,119,90,0.2);
-  border-bottom: 1px solid rgba(139,119,90,0.2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   overflow: hidden;
 }
 
@@ -111,7 +173,7 @@ body {
 .source-col {
   font-family: 'Kaisho', serif;
   font-size: 0.8rem;
-  color: #a09080;
+  color: var(--faint);
   letter-spacing: 0.1em;
   order: 3;
   line-height: 1.8;
@@ -120,10 +182,8 @@ body {
 .kanbun-col {
   font-family: 'Kaisho', serif;
   font-size: 2rem;
-  color: #1a1a1a;
-  text-shadow:
-    0.5px 0.5px 0px rgba(0,0,0,0.2),
-    -0.3px 0px 1px rgba(0,0,0,0.06);
+  color: var(--ink);
+  text-shadow: var(--kanbun-shadow);
   letter-spacing: 0.08em;
   order: 2;
 }
@@ -131,11 +191,11 @@ body {
 .kundoku-col {
   font-family: 'Kaisho', serif;
   font-size: 1.35rem;
-  color: #3a3a3a;
+  color: var(--ink-sub);
   letter-spacing: 0.03em;
   line-height: 1.9;
   order: 1;
-  -webkit-text-stroke: 0.4px #3a3a3a;
+  -webkit-text-stroke: 0.4px var(--ink-sub);
 }
 
 /* Buttons inline with text */
@@ -155,8 +215,8 @@ body {
   font-weight: 500;
   font-size: 0.8rem;
   background: transparent;
-  border: 1.5px solid #c43e2a;
-  color: #c43e2a;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
   padding: 0.3rem 0.9rem;
   border-radius: 1.5rem;
   cursor: pointer;
@@ -164,8 +224,8 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.toggle-btn:hover { background: rgba(196,62,42,0.06); }
-.toggle-btn.active { background: #c43e2a; color: #fff; }
+.toggle-btn:hover { background: var(--accent-a06); }
+.toggle-btn.active { background: var(--accent); color: var(--accent-fg); }
 
 .reveal-text {
   max-height: 0;
@@ -182,11 +242,11 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 700;
   font-size: 1.05rem;
-  color: #c43e2a;
+  color: var(--accent);
 }
 .kaisetsu-text {
   font-size: 0.9rem;
-  color: #4a4a4a;
+  color: var(--body-sub);
   line-height: 1.8;
 }
 
@@ -196,13 +256,27 @@ body {
   margin: 1.5rem auto 3rem;
   padding: 0 1rem;
 }
+.list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
 .list-section h2 {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 700;
   font-size: 1rem;
-  color: #8a7a6a;
-  margin-bottom: 0.8rem;
+  color: var(--muted);
   padding-left: 0.3rem;
+}
+.list-opts {
+  display: flex;
+  gap: 0.5rem;
+}
+.list-opts .toggle-btn {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.75rem;
 }
 
 .list-table {
@@ -211,33 +285,42 @@ body {
   font-size: 0.85rem;
 }
 .list-table thead th {
-  background: rgba(139,119,90,0.12);
+  background: var(--thead-bg);
   padding: 0.5rem 0.6rem;
   text-align: left;
   font-weight: 500;
-  color: #6a5a4a;
-  border-bottom: 2px solid rgba(139,119,90,0.25);
+  color: var(--muted-strong);
+  border-bottom: 2px solid var(--line-strong);
   white-space: nowrap;
 }
 .list-table tbody tr {
   cursor: pointer;
   transition: background 0.15s;
-  border-bottom: 1px solid rgba(139,119,90,0.1);
+  border-bottom: 1px solid var(--line-soft);
 }
-.list-table tbody tr:hover { background: rgba(196,62,42,0.05); }
+.list-table tbody tr:hover { background: var(--accent-a04); }
 .list-table tbody tr.selected {
-  background: rgba(196,62,42,0.1);
-  border-left: 3px solid #c43e2a;
+  background: var(--accent-a10);
+  border-left: 3px solid var(--accent);
 }
 .list-table td {
   padding: 0.55rem 0.6rem;
   vertical-align: top;
 }
-.list-table .col-no { width: 2.5rem; text-align: center; color: #8a7a6a; }
+.list-table .col-no { width: 2.5rem; text-align: center; color: var(--muted); }
 .list-table .col-cat { width: 3.5rem; }
 .list-table .col-src { width: 6rem; font-size: 0.82rem; }
 .list-table .col-kanbun { }
-.list-table .col-kundoku { font-size: 0.85rem; color: #5a5a5a; }
+.list-table .col-kundoku { font-size: 0.85rem; color: var(--table-sub); }
+
+/* Per-row hitokoto / kaisetsu, shown by the table toggles */
+.row-note { display: none; margin-top: 0.35rem; line-height: 1.7; }
+.row-hitokoto { font-weight: 700; color: var(--accent); }
+.row-kaisetsu { font-size: 0.82rem; color: var(--body-sub); }
+.list-table.show-hitokoto .row-hitokoto,
+.list-table.show-kaisetsu .row-kaisetsu { display: block; }
+/* The kundoku column is hidden on narrow screens; notes move under kanbun there */
+.notes-narrow { display: none; }
 
 .cat-badge {
   display: inline-block;
@@ -246,8 +329,8 @@ body {
   border-radius: 0.8rem;
   font-weight: 500;
 }
-.cat-manabi { background: rgba(59,130,246,0.12); color: #2563eb; }
-.cat-shisei { background: rgba(196,62,42,0.1); color: #c43e2a; }
+.cat-manabi { background: var(--manabi-bg); color: var(--manabi-fg); }
+.cat-shisei { background: var(--accent-a10); color: var(--accent); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
@@ -259,16 +342,32 @@ body {
   .source-col { font-size: 0.7rem; }
   .list-table { font-size: 0.78rem; }
   .list-table .col-kundoku { display: none; }
+  .notes-narrow { display: block; }
   .hitokoto-text { font-size: 1rem; }
   .btn-row { flex-direction: column; }
 }
 </style>
+<script>
+(function () {
+  // Apply the saved theme (or the OS preference) before first paint
+  var t = null;
+  try { t = localStorage.getItem('confucius-theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
 </head>
 <body>
 
 <header class="header-bar">
   <h1>エンジニアに贈る論語28選</h1>
   <div class="nav">
+    <button class="nav-btn theme-btn" id="themeBtn" aria-label="ダークモード切替" title="ダーク / ライト切替">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
     <button class="nav-btn" id="prevBtn" aria-label="前へ">&larr;</button>
     <div class="nav-info" id="navLabel">No.1 / 28</div>
     <button class="nav-btn" id="nextBtn" aria-label="次へ">&rarr;</button>
@@ -299,8 +398,14 @@ body {
 </section>
 
 <section class="list-section">
-  <h2>一覧</h2>
-  <table class="list-table">
+  <div class="list-head">
+    <h2>一覧</h2>
+    <div class="list-opts">
+      <button class="toggle-btn" id="listHitokotoBtn" aria-pressed="false">一言</button>
+      <button class="toggle-btn" id="listKaisetsuBtn" aria-pressed="false">解説</button>
+    </div>
+  </div>
+  <table class="list-table" id="listTable">
     <thead>
       <tr>
         <th class="col-no">No.</th>
@@ -596,11 +701,14 @@ function buildTable() {
   DATA.forEach((d, i) => {
     const tr = document.createElement('tr');
     const cc = d.category === '学び' ? 'cat-manabi' : 'cat-shisei';
+    const notes = '<div class="row-note row-hitokoto">' + d.hitokoto + '</div>'
+      + '<div class="row-note row-kaisetsu">' + d.kaisetsu + '</div>';
     tr.innerHTML = '<td class="col-no">' + d.no + '</td>'
       + '<td class="col-cat"><span class="cat-badge ' + cc + '">' + d.category + '</span></td>'
       + '<td class="col-src">' + d.source + '</td>'
-      + '<td class="col-kanbun">' + d.kanbun.replace(/ {2,}/g, ' ') + '</td>'
-      + '<td class="col-kundoku">' + d.kundoku.replace(/[\u3000]{2,}| {2,}/g, ' ') + '</td>';
+      + '<td class="col-kanbun">' + d.kanbun.replace(/ {2,}/g, ' ')
+      + '<div class="notes-narrow">' + notes + '</div></td>'
+      + '<td class="col-kundoku">' + d.kundoku.replace(/[\u3000]{2,}| {2,}/g, ' ') + notes + '</td>';
     tr.addEventListener('click', () => showEntry(i));
     tbody.appendChild(tr);
   });
@@ -614,7 +722,48 @@ _q('#kaisetsuBtn').addEventListener('click', () => {
   _q('#kaisetsuReveal').classList.toggle('show');
   _q('#kaisetsuBtn').classList.toggle('active');
 });
-_q('#prevBtn').addEventListener('click', () => showEntry((currentIndex - 1 + DATA.length) % DATA.length));
+function loadPref(key) {
+  try { return localStorage.getItem(key); } catch (e) { return null; }
+}
+function savePref(key, value) {
+  try { localStorage.setItem(key, value); } catch (e) {}
+}
+
+// Light / dark theme toggle
+_q('#themeBtn').addEventListener('click', () => {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  savePref('confucius-theme', next);
+});
+// Follow OS changes until the user picks a theme explicitly
+if (window.matchMedia) {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    const saved = loadPref('confucius-theme');
+    if (saved !== 'light' && saved !== 'dark') {
+      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+    }
+  });
+}
+
+// Table toggles: show hitokoto / kaisetsu under each kundoku
+function bindListToggle(btnId, cls, key) {
+  const btn = _q(btnId);
+  const apply = (on) => {
+    _q('#listTable').classList.toggle(cls, on);
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  };
+  apply(loadPref(key) === '1');
+  btn.addEventListener('click', () => {
+    const on = !btn.classList.contains('active');
+    apply(on);
+    savePref(key, on ? '1' : '0');
+  });
+}
+bindListToggle('#listHitokotoBtn', 'show-hitokoto', 'confucius-list-hitokoto');
+bindListToggle('#listKaisetsuBtn', 'show-kaisetsu', 'confucius-list-kaisetsu');
+
+_q('#prevBtn').addEventListener('click',() => showEntry((currentIndex - 1 + DATA.length) % DATA.length));
 _q('#nextBtn').addEventListener('click', () => showEntry((currentIndex + 1) % DATA.length));
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') showEntry((currentIndex - 1 + DATA.length) % DATA.length);
