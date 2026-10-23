@@ -21,6 +21,9 @@ I update this repository gradually, adding new references whenever we find them 
   - [English](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-en.html)  
   - [Japanese](https://goodrelax.github.io/gr-cheat-sheets/uml/class-diagram-cheat-sheet-jp.html)  
 
+- **論語 for Engineers (Confucius)**
+  - [Japanese](https://goodrelax.github.io/gr-cheat-sheets/confucius/confucius.html)
+
 ---
 
 _More to come... eventually._
